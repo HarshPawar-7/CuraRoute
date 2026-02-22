@@ -49,7 +49,7 @@
 </div>
 
 <div align="center">
-  <img src="public/Screenshot_Timeline.png" alt="Overview Timeline" width="800" />
+  <img src="public/Overview.png" alt="Overview Timeline" width="800" />
   <p><em>Overview of the CuraRoute
 </div>
 
