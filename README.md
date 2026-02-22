@@ -239,7 +239,64 @@ supabase/
 npm run build
 ```
 
-Output goes to `dist/` and can be deployed to Vercel, Netlify, or any static host.
+Output goes to `dist/` and can be deployed to any static host.
+
+## 🚀 Deploy to Vercel
+
+**Vercel is the recommended platform** for CuraRoute (optimal Vite support, automatic builds, edge functions).
+
+### Quick Deploy
+
+[![Deploy with Vercel](https://vercel.com/button)](https://vercel.com/new/clone?repository-url=https://github.com/yourusername/curaroute)
+
+### Manual Deployment
+
+1. **Install Vercel CLI** (optional)
+   ```bash
+   npm i -g vercel
+   ```
+
+2. **Connect your GitHub repo to Vercel**
+   - Go to [vercel.com/new](https://vercel.com/new)
+   - Import your GitHub repository
+   - Vercel auto-detects Vite configuration
+
+3. **Configure Environment Variables**
+   
+   In Vercel Dashboard → Settings → Environment Variables, add:
+   ```
+   VITE_SUPABASE_URL=your_supabase_project_url
+   VITE_SUPABASE_PUBLISHABLE_KEY=your_supabase_anon_key
+   ```
+
+4. **Deploy**
+   - Push to `main` branch → Auto-deploys
+   - Or run: `vercel --prod`
+
+### Deploy Supabase Edge Function
+
+The AI generation function needs separate deployment:
+
+```bash
+# Login to Supabase
+supabase login
+
+# Link your project
+supabase link --project-ref your-project-ref
+
+# Set Gemini API key
+supabase secrets set GEMINI_API_KEY=your_google_ai_api_key
+
+# Deploy the function
+supabase functions deploy generate-itinerary
+```
+
+### Build Configuration
+
+The `vercel.json` is pre-configured with:
+- ✅ SPA rewrites (handles client-side routing)
+- ✅ Asset caching (1 year for immutable files)
+- ✅ Framework detection (Vite)
 
 ## 🔄 How It Works
 
