@@ -1,0 +1,184 @@
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&family=DM+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --background: 38 33% 97%;
+    --foreground: 220 20% 14%;
+
+    --card: 36 30% 95%;
+    --card-foreground: 220 20% 14%;
+
+    --popover: 38 33% 97%;
+    --popover-foreground: 220 20% 14%;
+
+    --primary: 14 60% 52%;
+    --primary-foreground: 38 33% 97%;
+
+    --secondary: 180 30% 30%;
+    --secondary-foreground: 38 33% 97%;
+
+    --muted: 36 20% 90%;
+    --muted-foreground: 220 10% 46%;
+
+    --accent: 42 60% 70%;
+    --accent-foreground: 220 20% 14%;
+
+    --destructive: 0 84.2% 60.2%;
+    --destructive-foreground: 210 40% 98%;
+
+    --border: 36 20% 86%;
+    --input: 36 20% 86%;
+    --ring: 14 60% 52%;
+
+    --radius: 0.75rem;
+
+    --sidebar-background: 36 30% 95%;
+    --sidebar-foreground: 220 20% 14%;
+    --sidebar-primary: 14 60% 52%;
+    --sidebar-primary-foreground: 38 33% 97%;
+    --sidebar-accent: 36 20% 90%;
+    --sidebar-accent-foreground: 220 20% 14%;
+    --sidebar-border: 36 20% 86%;
+    --sidebar-ring: 14 60% 52%;
+
+    /* Custom travel tokens */
+    --terracotta: 14 60% 52%;
+    --teal: 180 30% 30%;
+    --sand: 42 60% 70%;
+    --warm-white: 38 33% 97%;
+    --charcoal: 220 20% 14%;
+    --gold: 40 70% 55%;
+
+    --gradient-hero: linear-gradient(135deg, hsl(14 60% 52% / 0.9), hsl(180 30% 30% / 0.85));
+    --gradient-card: linear-gradient(160deg, hsl(36 30% 95%), hsl(42 60% 70% / 0.15));
+    --shadow-warm: 0 8px 32px -8px hsl(14 60% 52% / 0.2);
+    --shadow-elevated: 0 20px 60px -12px hsl(220 20% 14% / 0.15);
+
+    --font-display: 'Playfair Display', serif;
+    --font-body: 'DM Sans', sans-serif;
+  }
+
+  .dark {
+    --background: 220 20% 12%;
+    --foreground: 38 20% 95%;
+
+    --card: 220 18% 17%;
+    --card-foreground: 38 20% 95%;
+
+    --popover: 220 18% 17%;
+    --popover-foreground: 38 20% 95%;
+
+    --primary: 14 60% 58%;
+    --primary-foreground: 220 20% 10%;
+
+    --secondary: 180 28% 45%;
+    --secondary-foreground: 38 20% 95%;
+
+    --muted: 220 15% 25%;
+    --muted-foreground: 220 10% 65%;
+
+    --accent: 42 55% 50%;
+    --accent-foreground: 38 20% 95%;
+
+    --destructive: 0 62.8% 50.6%;
+    --destructive-foreground: 210 40% 98%;
+
+    --border: 220 15% 25%;
+    --input: 220 15% 25%;
+    --ring: 14 60% 58%;
+
+    --sidebar-background: 220 18% 15%;
+    --sidebar-foreground: 38 20% 95%;
+    --sidebar-primary: 14 60% 58%;
+    --sidebar-primary-foreground: 220 20% 10%;
+    --sidebar-accent: 220 15% 22%;
+    --sidebar-accent-foreground: 38 20% 95%;
+    --sidebar-border: 220 15% 25%;
+    --sidebar-ring: 14 60% 58%;
+
+    --shadow-warm: 0 8px 32px -8px hsl(14 60% 58% / 0.3);
+    --shadow-elevated: 0 20px 60px -12px hsl(14 60% 58% / 0.2);
+    --gradient-card: linear-gradient(160deg, hsl(220 18% 17%), hsl(14 60% 58% / 0.08));
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground;
+    font-family: var(--font-body);
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    font-family: var(--font-display);
+  }
+}
+
+@layer utilities {
+  .font-display {
+    font-family: var(--font-display);
+  }
+  .font-body {
+    font-family: var(--font-body);
+  }
+  .shadow-warm {
+    box-shadow: var(--shadow-warm);
+  }
+  .shadow-elevated {
+    box-shadow: var(--shadow-elevated);
+  }
+  .gradient-hero {
+    background: linear-gradient(180deg, rgba(14, 73, 102, 0.6) 0%, rgba(20, 96, 124, 0.75) 50%, rgba(14, 73, 102, 0.85) 100%);
+  }
+  .gradient-card {
+    background: var(--gradient-card);
+  }
+  
+  /* Glassmorphism utilities */
+  .glass {
+    background: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+  }
+  
+  .glass-card {
+    background: rgba(255, 255, 255, 0.08);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    border: 1px solid rgba(255, 255, 255, 0.15);
+    box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.1);
+  }
+  
+  .glass-strong {
+    background: rgba(255, 255, 255, 0.15);
+    backdrop-filter: blur(16px);
+    -webkit-backdrop-filter: blur(16px);
+    border: 1px solid rgba(255, 255, 255, 0.25);
+    box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.15);
+  }
+  
+  .dark .glass {
+    background: rgba(30, 30, 40, 0.4);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+  }
+  
+  .dark .glass-card {
+    background: rgba(30, 30, 40, 0.5);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.3);
+  }
+  
+  .dark .glass-strong {
+    background: rgba(40, 40, 50, 0.6);
+    border: 1px solid rgba(255, 255, 255, 0.15);
+    box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.4);
+  }
+}
